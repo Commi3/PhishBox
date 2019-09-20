@@ -5,6 +5,7 @@ print("██╔═══╝ ██╔══██║██║╚════█
 print("██║     ██║  ██║██║███████║██║  ██║██████╔╝╚██████╔╝██╔╝ ██")
 print("╚═╝     ╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝")
 
+#Please change the version and edit date when changes are made cause it looks offical :)
 print("Version 0")
 print("Last edit: 9/20/19")
 print("By DJCHICKEN4, Commi3, ???")

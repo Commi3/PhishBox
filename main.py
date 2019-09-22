@@ -39,9 +39,7 @@ def checkUpdate():
 def update():
     print(bcolors.OK)
     phishBoxDirectory = os.getcwd()
-    print(phishBoxDirectory)
-    os.system("cd " + phishBoxDirectory + " && cd .. && rm -rf PhishBox && git clone https://github.com/TheMasterOfE/PhishBox")
-
+    os.system("cd " + phishBoxDirectory + " && cd .. && mkdir PhishBoxUpdate && cd PhishBoxUpdate && git clone https://github.com/TheMasterOfE/PhishBox . && cd .. && rsync -r PhishBoxUpdate/ PhishBox/ && rm -rf PhishBoxUpdate && cd " + phishBoxDirectory + " && clear && python3 main.py")
 def promptUpdate():
     willUpdate = input(bcolors.PROMPT + "Would you like to update Y/N\n")
     if willUpdate in yes:

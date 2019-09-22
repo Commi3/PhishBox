@@ -37,11 +37,10 @@ def checkUpdate():
         print(bcolors.ERROR + "ERROR " + statusCode)
 
 def update():
-    print(bcolors.OK + "E")
+    print(bcolors.OK)
     phishBoxDirectory = os.getcwd()
-    os.system("cd " + phishBoxDirectory + " && cd ..")
-    os.system("rm -rf PhishBox")
-    os.system("git clone https://github.com/TheMasterOfE/PhishBox")
+    print(phishBoxDirectory)
+    os.system("cd " + phishBoxDirectory + " && cd .. && rm -rf PhishBox && git clone https://github.com/TheMasterOfE/PhishBox" + )
 
 def promptUpdate():
     willUpdate = input(bcolors.PROMPT + "Would you like to update Y/N\n")

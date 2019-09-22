@@ -3,16 +3,19 @@ import smtplib
 import requests
 import os
 
-no = ['no','No','NO','N','n']
-yes = ['yes','Yes','YES','YEs','YeS','yES','y','Y']
+no = ['no', 'No', 'NO', 'N', 'n']
+yes = ['yes', 'Yes', 'YES', 'YEs', 'YeS', 'yES', 'y', 'Y']
+
 
 class bcolors:
     PROMPT = '\033[33m'
     ERROR = '\033[91m'
     OK = '\033[92m'
 
+
 def start():
     print("start")
+
 
 def checkVersion():
     versionFile = open("version.txt")
@@ -21,8 +24,10 @@ def checkVersion():
     float(version)
     versionFile.close()
 
+
 def checkUpdate():
-    githubVersion = requests.get('https://raw.githubusercontent.com/TheMasterOfE/PhishBox/master/version.txt')
+    githubVersion = requests.get(
+        'https://raw.githubusercontent.com/TheMasterOfE/PhishBox/master/version.txt')
     statusCode = githubVersion.status_code
     int(statusCode)
     if statusCode == 200:
@@ -31,15 +36,20 @@ def checkUpdate():
         if latestVersion == version:
             print(bcolors.OK + 'Looks like PhishBox is up to date!')
         else:
-            print(bcolors.ERROR + 'It looks like you are using an outdated version of PhishBox!')
+            print(bcolors.ERROR +
+                  'It looks like you are using an outdated version of PhishBox!')
             promptUpdate()
     else:
         print(bcolors.ERROR + "ERROR " + statusCode)
 
+
 def update():
     print(bcolors.OK)
     phishBoxDirectory = os.getcwd()
-    os.system("cd " + phishBoxDirectory + " && cd .. && mkdir PhishBoxUpdate && cd PhishBoxUpdate && git clone https://github.com/TheMasterOfE/PhishBox . && cd .. && rsync -r PhishBoxUpdate/ PhishBox/ && rm -rf PhishBoxUpdate && cd " + phishBoxDirectory + " && clear && python3 main.py")
+    os.system("cd " + phishBoxDirectory + " && cd .. && mkdir PhishBoxUpdate && cd PhishBoxUpdate && git clone https://github.com/TheMasterOfE/PhishBox . && cd .. && rsync -r PhishBoxUpdate/ PhishBox/ && rm -rf PhishBoxUpdate && cd " +
+              phishBoxDirectory + " && clear && python3 main.py")
+
+
 def promptUpdate():
     willUpdate = input(bcolors.PROMPT + "Would you like to update Y/N\n")
     if willUpdate in yes:
@@ -49,6 +59,7 @@ def promptUpdate():
     else:
         print("Please enter either Yes or No")
         promptUpdate()
+
 
 def banner():
     print(bcolors.OK + "██████╗ ██╗  ██╗██╗███████╗██╗  ██╗██████╗  ██████╗ ██╗  ██╗")
@@ -65,11 +76,13 @@ def banner():
     print(bcolors.OK + "By DJCHICKEN4, Commi3, ???")
     print(bcolors.OK + "This is to be used for legal and educational purposes only. Any other use is not intended.")
 
+
 class phishBox:
     count = 0
 
     def __init__(self):
-            print("\n+{+{+{Initializing PhishBox}+}+}+")
+        print("\n+{+{+{Initializing PhishBox}+}+}+")
+
 
 checkVersion()
 banner()

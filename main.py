@@ -1,5 +1,6 @@
 import sys
 import smtplib
+import requests
 
 class bcolors:
     GREEN = '\033[92m'
@@ -10,8 +11,17 @@ def checkVersion():
     versionFile = open("version.txt")
     global version
     version = versionFile.read()
+    int(version)
     versionFile.close()
 
+def checkUpdate():
+    githubVersion = requests.get('https://raw.githubusercontent.com/TheMasterOfE/PhishBox/master/version.txt')
+    latestVersion = githubVersion.text
+    int(latestVersion)
+    if latestVersion == version:
+        print(bcolors.GREEN + 'Looks like PhishBox is up to date!')
+    else:
+        print(bcolors.RED + 'It looks like you are using an outdated version of PhishBox!')
 
 
 def banner():
@@ -38,3 +48,4 @@ class phishBox:
 
 checkVersion()
 banner()
+checkUpdate()

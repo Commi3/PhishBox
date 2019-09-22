@@ -38,7 +38,8 @@ def checkUpdate():
 
 def update():
     print(bcolors.OK + "E")
-    os.system("cd ..")
+    phishBoxDirectory = os.getcwd()
+    os.system("cd " + phishBoxDirectory + " && cd ..")
     os.system("rm -rf PhishBox")
     os.system("git clone https://github.com/TheMasterOfE/PhishBox")
 

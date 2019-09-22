@@ -11,13 +11,13 @@ def checkVersion():
     versionFile = open("version.txt")
     global version
     version = versionFile.read()
-    int(version)
+    float(version)
     versionFile.close()
 
 def checkUpdate():
     githubVersion = requests.get('https://raw.githubusercontent.com/TheMasterOfE/PhishBox/master/version.txt')
     latestVersion = githubVersion.text
-    int(latestVersion)
+    float(latestVersion)
     if latestVersion == version:
         print(bcolors.GREEN + 'Looks like PhishBox is up to date!')
     else:
